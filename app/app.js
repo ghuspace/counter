@@ -1,3 +1,5 @@
+// Lógica do contador inicial
+
 let count = 0;
 
 const value = document.querySelector("#value");
@@ -15,4 +17,12 @@ btns.forEach(function (btn) {
     }
     value.textContent = count;
   });
+});
+
+// Lógica da navbar
+const menuBtn = document.getElementById("menu-btn");
+const navbar = document.querySelector(".navbarlateral");
+
+menuBtn.addEventListener("click", () => {
+  navbar.classList.toggle("collapsed");
 });
