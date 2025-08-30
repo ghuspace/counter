@@ -274,5 +274,4 @@ main {
   display: flex;
   justify-content: space-between;
   border-bottom: var(--clr-grey-5) 1px solid;
-  margin-bottom: 30px;
 }
