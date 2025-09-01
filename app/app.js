@@ -11,6 +11,9 @@ const options = document.querySelectorAll(".navbarlateral a");
 options.forEach(item => {
   item.addEventListener("click", (e) => {
     e.preventDefault();
+
+    clearInterval(interval);
+
     mode = e.currentTarget.id;
     if (mode == "impar"){
       count = 1;
@@ -104,7 +107,12 @@ function randomCount(count, option) {
 function automaticCount(option) { 
   clearInterval(interval) 
   
-  if (option === "reset") count = 0; 
+  if (option === "reset") {
+    count = 0;
+    value.textContent = count;
+    return;
+  }
+  
   if (option === "decrease") count--;
   if (option === "increase") count++; 
   
