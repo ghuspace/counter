@@ -100,10 +100,6 @@ btns.forEach(function (btn) {
         count = commonCount(count, option);
         break;
 
-      case "primos":
-        count = primosCount(count, option);
-        break;
-
       case "par":
         count = evenCount(count, option);
         break;
@@ -129,10 +125,6 @@ btns.forEach(function (btn) {
 
       case "automatico":
         automaticCount(option)
-        break;
-
-      case "romano":
-        count = romanCount(count, option)
         break;
 
       case "fibonacci":
@@ -376,9 +368,4 @@ function automaticCount(option) {
       document.querySelector("#value").textContent = count; 
     }, 1000 
   ) 
-}
-
-// Romano
-function romanCount(count, option) { 
-  
 }
