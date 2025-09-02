@@ -1,6 +1,7 @@
 // Variáveis
 let count = 0;
 let mode = "comum";
+let interval;
 const value = document.querySelector("#value");
 const btns = document.querySelectorAll(".btn");
 const options = document.querySelectorAll(".navbarlateral a");
@@ -15,6 +16,9 @@ let increased = false;
 options.forEach(item => {
   item.addEventListener("click", (e) => {
     e.preventDefault();
+
+    clearInterval(interval);
+
     mode = e.currentTarget.id;
     if (mode == "impar"){
       count = 1;
@@ -75,6 +79,9 @@ btns.forEach(function (btn) {
       
       case "romano":
         count = romanCount(count, option);
+
+      case "automatico":
+        automaticCount(option)
         break;
     }
     value.textContent = count;
@@ -292,3 +299,28 @@ function fromRoman(str) {
   }
   return num;
 }
+
+// Automática
+function automaticCount(option) { 
+  clearInterval(interval) 
+  
+  if (option === "reset") {
+    count = 0;
+    value.textContent = count;
+    return;
+  }
+  
+  if (option === "decrease") count--;
+  if (option === "increase") count++; 
+  
+  document.querySelector("#value").textContent = count; 
+  interval = setInterval( 
+    () => { 
+      if (option === "decrease") count --;
+      if (option === "increase") count ++;
+
+      document.querySelector("#value").textContent = count; 
+    }, 1000 
+  ) 
+}
+// To tentando deixar padronizado em ingles o codigo, se achar alguma caca ai pode me falarKKKKKKKKKK
