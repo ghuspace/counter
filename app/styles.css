@@ -275,3 +275,18 @@ main {
   justify-content: space-between;
   border-bottom: var(--clr-grey-5) 1px solid;
 }
+
+.pag-estilizacao {
+  position: fixed;
+  right: -400px;  
+  bottom: 0;
+  transition: right 1s ease;
+}
+
+.pag-estilizacao.active {
+  right: 0;
+}
+
+.pag-estilizacao > img {
+  width: 400px;
+}

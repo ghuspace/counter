@@ -5,6 +5,8 @@ let interval;
 const value = document.querySelector("#value");
 const btns = document.querySelectorAll(".btn");
 const options = document.querySelectorAll(".navbarlateral a");
+const estilizacao = document.querySelector(".pag-estilizacao");
+const type = document.querySelector("#type");
 
 //fibonacci config
 let fibonacci_sequence = [1, 1, 2]
@@ -16,10 +18,9 @@ let increased = false;
 options.forEach(item => {
   item.addEventListener("click", (e) => {
     e.preventDefault();
-
+    mode = e.currentTarget.id;
     clearInterval(interval);
 
-    mode = e.currentTarget.id;
     if (mode == "impar"){
       count = 1;
     } else if (mode == "primos"){
@@ -33,11 +34,53 @@ options.forEach(item => {
     } else {
       count = 0;
     }
+
+    if (mode == "romano"){
+      document.body.style.background = "#edd9b9";
+      document.body.style.transition = "1s"
+      estilizacao.classList.add("active"); 
+    } else {
+      document.body.style.background = "hsl(205, 100%, 96%)";
+      estilizacao.classList.remove("active"); 
+    }
+
+    switch (mode) {
+      case "comum": 
+        type.textContent = "Comum"; 
+        break;
+      case "primos": 
+        type.textContent = "Primos"; 
+        break;
+
+      case "par": 
+        type.textContent= "Par"; 
+        break;
+
+      case "impar": 
+        type.textContent = "Ímpar"; 
+        break;
+
+      case "aleatorio": 
+        type.textContent = "Aleatório"; 
+        break;
+
+      case "automatico": 
+        type.textContent = "Automático"; 
+        break;
+
+      case "romano": 
+        type.textContent = "Romano"; 
+        break;
+
+      case "fibonacci": 
+        type.textContent = "Fibonacci"; 
+        break;
+    }
+
     value.textContent = count;
   });
 });
 
-// Ainda preciso colocar pra destacar a corzinha da opção la no menu, qnd o usuário escolhe
 btns.forEach(function (btn) {
   btn.addEventListener("click", function (e) {
     
@@ -55,6 +98,10 @@ btns.forEach(function (btn) {
     switch (mode) {
       case "comum":
         count = commonCount(count, option);
+        break;
+
+      case "primos":
+        count = primosCount(count, option);
         break;
 
       case "par":
@@ -82,6 +129,14 @@ btns.forEach(function (btn) {
 
       case "automatico":
         automaticCount(option)
+        break;
+
+      case "romano":
+        count = romanCount(count, option)
+        break;
+
+      case "fibonacci":
+        count = fibonacciCount(count, option)
         break;
     }
     value.textContent = count;
@@ -303,7 +358,6 @@ function fromRoman(str) {
 // Automática
 function automaticCount(option) { 
   clearInterval(interval) 
-  
   if (option === "reset") {
     count = 0;
     value.textContent = count;
@@ -323,4 +377,8 @@ function automaticCount(option) {
     }, 1000 
   ) 
 }
-// To tentando deixar padronizado em ingles o codigo, se achar alguma caca ai pode me falarKKKKKKKKKK
+
+// Romano
+function romanCount(count, option) { 
+  
+}
