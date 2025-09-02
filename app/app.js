@@ -86,7 +86,7 @@ btns.forEach(function (btn) {
         break;
 
       case "primos":
-        count = commonCount(count, option);
+        count = primosCount(count, option);
         break;
 
       case "par":
@@ -106,11 +106,11 @@ btns.forEach(function (btn) {
         break;
 
       case "romano":
-        romanCount(count, option)
+        count = romanCount(count, option)
         break;
 
       case "fibonacci":
-        fibonacciCount(count, option)
+        count = fibonacciCount(count, option)
         break;
     }
     value.textContent = count;
