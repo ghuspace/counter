@@ -313,7 +313,6 @@ main {
   position: fixed;
   right: -500px;
   top: 50%;
-  /* optional, just to align */
   transition: right 1s ease;
 }
 
