@@ -6,6 +6,7 @@ const value = document.querySelector("#value");
 const btns = document.querySelectorAll(".btn");
 const options = document.querySelectorAll(".navbarlateral a");
 const estilizacao = document.querySelector(".pag-estilizacao");
+const diceEstilizacao = document.querySelector(".dice-estilizacao")
 const type = document.querySelector("#type");
 
 //fibonacci config
@@ -33,6 +34,15 @@ options.forEach(item => {
       count = 0
     } else {
       count = 0;
+    }
+
+    if( mode == "aleatorio"){
+      document.body.style.background = "#00FF00";
+      document.body.style.transition = "1s"
+      diceEstilizacao.classList.add("active"); 
+    } else {
+      document.body.style.background = "hsl(205, 100%, 96%)";
+      diceEstilizacao.classList.remove("active"); 
     }
 
     if (mode == "romano"){
@@ -122,6 +132,7 @@ btns.forEach(function (btn) {
       
       case "romano":
         count = romanCount(count, option);
+        break; 
 
       case "automatico":
         automaticCount(option)
