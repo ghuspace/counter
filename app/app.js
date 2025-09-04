@@ -22,68 +22,107 @@ options.forEach(item => {
     mode = e.currentTarget.id;
     clearInterval(interval);
 
-    if (mode == "impar"){
-      count = 1;
-    } else if (mode == "primos"){
-      count = 2;
-    } else if (mode == "romano") {
-      count = "I"
-    } else if (mode == "fibonacci") {
-      decreased = false
-      increased = false
-      count = 0
-    } else {
-      count = 0;
-    }
-
-    if( mode == "aleatorio"){
-      document.body.style.background = "#00FF00";
-      document.body.style.transition = "1s"
-      diceEstilizacao.classList.add("active"); 
-    } else {
-      document.body.style.background = "hsl(205, 100%, 96%)";
-      diceEstilizacao.classList.remove("active"); 
-    }
-
-    if (mode == "romano"){
-      document.body.style.background = "#edd9b9";
-      document.body.style.transition = "1s"
-      estilizacao.classList.add("active"); 
-    } else {
-      document.body.style.background = "hsl(205, 100%, 96%)";
-      estilizacao.classList.remove("active"); 
-    }
-
     switch (mode) {
       case "comum": 
+        document.body.style.background = "#dae2ecff";
         type.textContent = "Comum"; 
+
+        //count config
+        count = 0;
+        
+        //removing html classes
+        diceEstilizacao.classList.remove("active"); 
+        estilizacao.classList.remove("active");
         break;
       case "primos": 
+        document.body.style.background = "#6cf5ffff";
         type.textContent = "Primos"; 
+
+        //count config
+        count = 2;
+
+        //removing html classes
+        diceEstilizacao.classList.remove("active"); 
+        estilizacao.classList.remove("active");
         break;
 
       case "par": 
+        document.body.style.background = "#ebd9bbff";
         type.textContent= "Par"; 
+
+        //count config
+        count = 0;
+
+        //removing html classes
+        diceEstilizacao.classList.remove("active"); 
+        estilizacao.classList.remove("active");
         break;
 
       case "impar": 
+        document.body.style.background = "#de6ef7ff";
         type.textContent = "Ímpar"; 
+
+        //count config
+        count = 1;
+
+        //removing html classes
+        diceEstilizacao.classList.remove("active"); 
+        estilizacao.classList.remove("active"); 
         break;
 
       case "aleatorio": 
+        document.body.style.background = "#4ddbacff";
         type.textContent = "Aleatório"; 
+
+        //count config
+        count = 0;
+
+        //adding html class
+        diceEstilizacao.classList.add("active");
+
+        //removing html classes
+        estilizacao.classList.remove("active");
         break;
 
       case "automatico": 
+        document.body.style.background = "#22b671ff";
         type.textContent = "Automático"; 
+
+        //count config
+        count = 0;
+
+        //removing html classes
+        diceEstilizacao.classList.remove("active"); 
+        estilizacao.classList.remove("active");
         break;
 
       case "romano": 
+        document.body.style.background = "#dfc192ff";
+        
         type.textContent = "Romano"; 
+
+        //count config
+        count = "I"
+        
+        //adding html class
+        estilizacao.classList.add("active"); 
+
+        //removing html classes
+        diceEstilizacao.classList.remove("active"); 
         break;
 
       case "fibonacci": 
+      document.body.style.background = "#FFD700";
         type.textContent = "Fibonacci"; 
+
+        //fibonacci variables config
+        decreased = false
+        increased = false
+        count = 0
+        
+        //removing html classes
+        diceEstilizacao.classList.remove("active"); 
+        estilizacao.classList.remove("active");
         break;
     }
 
