@@ -9,9 +9,9 @@ const estilizacao = document.querySelector(".pag-estilizacao");
 const diceEstilizacao = document.querySelector(".dice-estilizacao")
 const type = document.querySelector("#type");
 
-//fibonacci config
+// Fibonacci config
 let fibonacci_sequence = [1, 1, 2]
-let fibonacci_index = 0 //vai de 0 a 2
+let fibonacci_index = 0 // vai de 0 a 2
 let decreased = false;
 let increased = false;
 
@@ -225,7 +225,7 @@ function randomCount(count, option) {
   return 0;
 }
 
-//fibonacci
+// Fibonacci
 function fibonacciCount(count, option) {
   if (option === "decrease") {
     decreased = true;
@@ -296,6 +296,7 @@ function fibonacciCount(count, option) {
   return count
 }
 
+// Primos
 function primeCount(count, option) {
   if(option == "decrease"){
     let prime = true
@@ -350,6 +351,7 @@ function isItPrime(number){
   return true;
 }
 
+// Romano
 function romanCount(count, option){
   if(option == "decrease"){
     if(count == "I"){
