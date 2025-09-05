@@ -8,6 +8,7 @@ const options = document.querySelectorAll(".navbarlateral a");
 const estilizacao = document.querySelector(".pag-estilizacao");
 const diceEstilizacao = document.querySelector(".dice-estilizacao")
 const type = document.querySelector("#type");
+const automaticEstilizacao = document.querySelector(".pag-relogio")
 
 // Fibonacci config
 let fibonacci_sequence = [1, 1, 2]
@@ -33,6 +34,8 @@ options.forEach(item => {
         //removing html classes
         diceEstilizacao.classList.remove("active"); 
         estilizacao.classList.remove("active");
+        automaticEstilizacao.classList.remove("active");
+
         break;
       case "primos": 
         document.body.style.background = "#6cf5ffff";
@@ -44,6 +47,8 @@ options.forEach(item => {
         //removing html classes
         diceEstilizacao.classList.remove("active"); 
         estilizacao.classList.remove("active");
+        automaticEstilizacao.classList.remove("active");
+
         break;
 
       case "par": 
@@ -56,6 +61,8 @@ options.forEach(item => {
         //removing html classes
         diceEstilizacao.classList.remove("active"); 
         estilizacao.classList.remove("active");
+        automaticEstilizacao.classList.remove("active");
+
         break;
 
       case "impar": 
@@ -68,6 +75,8 @@ options.forEach(item => {
         //removing html classes
         diceEstilizacao.classList.remove("active"); 
         estilizacao.classList.remove("active"); 
+        automaticEstilizacao.classList.remove("active");
+
         break;
 
       case "aleatorio": 
@@ -82,14 +91,19 @@ options.forEach(item => {
 
         //removing html classes
         estilizacao.classList.remove("active");
+        automaticEstilizacao.classList.remove("active");
+
         break;
 
       case "automatico": 
-        document.body.style.background = "#22b671ff";
+        document.body.style.background = "#fc9ac0";
         type.textContent = "Automático"; 
 
         //count config
         count = 0;
+
+        //adding html class
+        automaticEstilizacao.classList.add("active");
 
         //removing html classes
         diceEstilizacao.classList.remove("active"); 
@@ -109,6 +123,8 @@ options.forEach(item => {
 
         //removing html classes
         diceEstilizacao.classList.remove("active"); 
+        automaticEstilizacao.classList.remove("active");
+
         break;
 
       case "fibonacci": 
@@ -123,6 +139,8 @@ options.forEach(item => {
         //removing html classes
         diceEstilizacao.classList.remove("active"); 
         estilizacao.classList.remove("active");
+        automaticEstilizacao.classList.remove("active");
+
         break;
     }
 
@@ -174,7 +192,8 @@ btns.forEach(function (btn) {
         break; 
 
       case "automatico":
-        automaticCount(option)
+        automaticCount(option);
+        turnOnClock();
         break;
 
       case "fibonacci":
@@ -401,7 +420,7 @@ function fromRoman(str) {
 
 // Automática
 function automaticCount(option) { 
-  clearInterval(interval) 
+  clearInterval(interval)
   if (option === "reset") {
     count = 0;
     value.textContent = count;
@@ -421,3 +440,20 @@ function automaticCount(option) {
     }, 1000 
   ) 
 }
+
+function turnOnClock() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  const hourAngle = (hours % 12) * 30 + minutes * 0.5;
+  const minuteAngle = minutes * 6;
+  const secondAngle = seconds * 6;
+
+  document.querySelector(".hora").style.transform = `rotate(${hourAngle}deg)`;
+  document.querySelector(".minuto").style.transform = `rotate(${minuteAngle}deg)`;
+  document.querySelector(".segundo").style.transform = `rotate(${secondAngle}deg)`;
+}
+
+setInterval(turnOnClock, 1000);

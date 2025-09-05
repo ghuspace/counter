@@ -185,6 +185,9 @@ main {
 
 .container {
   text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #value {
@@ -333,4 +336,112 @@ main {
 
 .dice-estilizacao.active #dice2 {
   left: 0px;
+}
+
+.pag-relogio {
+  position: fixed;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  background: #e02f58; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  right: -400px;
+  top: 60px;
+  transition: right 1s ease;
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.3),   
+    0 6px 6px rgba(0, 0, 0, 0.2);    
+}
+
+.pag-relogio.active {
+  top: 60px;
+  right: 60px;
+  transition: right 1s ease;
+}
+
+.relogio-dentro {
+  border: #363636 4px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 245px;
+  height: 245px;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(
+      #000 0deg 2deg,      
+      transparent 2deg 6deg 
+    ),
+    #fff;
+}
+
+#fundo-relogio {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+}
+
+#bolinha {
+  z-index: 2;
+  position: absolute;
+  width: 6%;
+  height: 6%;
+  background-color: #fff;
+  border: #406496 5px solid;
+  border-radius: 50%;
+}
+
+.ponteiro {
+  bottom: 50%;
+  left: 50%;
+  position: absolute;
+  background-color: black;
+  transform-origin: bottom center;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.hora {
+  width: 8px;    
+  height: 70px;    
+  background-color: #363636;
+  transform: rotate(90deg);
+}
+
+.minuto {
+  border-radius: 0px;
+  width: 6px;
+  height: 110px;
+  transform: rotate(180deg);
+}
+
+.segundo {
+  width: 2px;
+  height: 100px;
+  background-color: red;
+  transform: rotate(270deg);
+}
+
+#tracinho-maior{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(
+      #000 0deg 2deg,      
+      transparent 2deg 30deg 
+    ),
+    #fff;
+  -webkit-mask: radial-gradient(circle, transparent 40%, black 61%);
+  -webkit-mask-composite: destination-in;
+          mask: radial-gradient(circle, transparent 62%, black 61%);
+          mask-composite: intersect;
 }
